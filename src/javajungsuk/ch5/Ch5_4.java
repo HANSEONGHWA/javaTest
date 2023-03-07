@@ -1,4 +1,4 @@
-package ch5;
+package javajungsuk.ch5;
 
 /**
  * 배열의 활용

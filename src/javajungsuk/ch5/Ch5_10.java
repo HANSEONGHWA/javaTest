@@ -1,6 +1,4 @@
-package ch5;
-
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+package javajungsuk.ch5;
 
 /**
  * 2차원 배열 예제 (총점, 평균 구하기)

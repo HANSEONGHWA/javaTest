@@ -1,4 +1,4 @@
-package ch5;
+package javajungsuk.ch5;
 
 /**
  * 2차원 배열
