@@ -31,22 +31,39 @@ class Tire{
 }
 
 class Car{
-    Tire frontLeft = new Tire(6, "앞왼쪽");
-    Tire fontRight = new Tire(2, "앞오른쪽");
-    Tire backLeft = new Tire(3, "뒤왼쪽");
-    Tire backRight = new Tire(4, "뒤오른쪽");
+    /**
+     * 하나의 배열로 객체 관리
+     */
+      Tire[] tires = {
+              new Tire(6, "앞왼쪽"),
+              new Tire(2, "앞오른쪽"),
+              new Tire(3, "뒤왼쪽"),
+              new Tire(4, "뒤오른쪽")
+      };
+//    Tire frontLeft = new Tire(6, "앞왼쪽");
+//    Tire fontRight = new Tire(2, "앞오른쪽");
+//    Tire backLeft = new Tire(3, "뒤왼쪽");
+//    Tire backRight = new Tire(4, "뒤오른쪽");
 
     /**
      * 4개의 타이어를 1회전 시키는 메서드
      * @return
      */
+
     //모든 타이어를 1회 실행시키기 위해 각 Tire객체의 roll()메소드를 호출함. false를 리턴하는 roll()이 있을 경우 stop()메서드를 호출하고 해당 타이어 번호를 리턴.
     int run(){
         System.out.println("자동차가 달립니다.");
-        if(frontLeft.roll()==false){stop(); return 1;}
-        if (fontRight.roll() == false) {stop(); return 2;}
-        if (backLeft.roll() == false) {stop(); return 3;}
-        if(backRight.roll()==false) {stop(); return 4;}
+        for (int i = 0; i < tires.length; i++) {
+            if (tires[i].roll() == false) {
+                stop();
+                return (i+1);
+            }
+        }
+
+//        if(frontLeft.roll()==false){stop(); return 1;}
+//        if (fontRight.roll() == false) {stop(); return 2;}
+//        if (backLeft.roll() == false) {stop(); return 3;}
+//        if(backRight.roll()==false) {stop(); return 4;}
         return 0;
     }
     //펑크 시 실행
@@ -100,25 +117,30 @@ public class Ch7_2 {
         for (int i = 0; i < 5; i++) {       // Car객체의 run()메서드 5번 실행.
             int problemLocation = c.run();  //바퀴의 번호를 받음.
 
-            switch (problemLocation){
-                //앞왼쪽 타이어가 펑크났을 때 한국타이어로 교체
-                case 1:
-                    System.out.println("앞왼쪽 한국타이어로 교체");
-                    c.frontLeft = new HankookTire(15,"앞왼쪽"); //자동타입변환되어 재정의된 메서드 실행.
-                    break;
-                case 2:
-                    System.out.println("앞오른쪽 한국타이어로 교체");
-                    c.fontRight = new KumhoTire(15,"앞오른쪽");
-                    break;
-                case 3:
-                    System.out.println("뒤왼쪽 한국타이어로 교체");
-                    c.backLeft = new HankookTire(15,"뒤왼쪽");
-                    break;
-                case 4:
-                    System.out.println("뒤오른쪽 한국타이어로 교체");
-                    c.backRight = new KumhoTire(15,"뒤오른쪽");
-                    break;
+            if (problemLocation != 0) {
+                System.out.println(c.tires[problemLocation-1].location + "한국타이어로 교체");
+                c.tires[problemLocation-1] = new HankookTire(15, c.tires[problemLocation-1].location);
             }
+
+//            switch (problemLocation){
+//                //앞왼쪽 타이어가 펑크났을 때 한국타이어로 교체
+//                case 1:
+//                    System.out.println("앞왼쪽 한국타이어로 교체");
+//                    c.frontLeft = new HankookTire(15,"앞왼쪽"); //자동타입변환되어 재정의된 메서드 실행.
+//                    break;
+//                case 2:
+//                    System.out.println("앞오른쪽 한국타이어로 교체");
+//                    c.fontRight = new KumhoTire(15,"앞오른쪽");
+//                    break;
+//                case 3:
+//                    System.out.println("뒤왼쪽 한국타이어로 교체");
+//                    c.backLeft = new HankookTire(15,"뒤왼쪽");
+//                    break;
+//                case 4:
+//                    System.out.println("뒤오른쪽 한국타이어로 교체");
+//                    c.backRight = new KumhoTire(15,"뒤오른쪽");
+//                    break;
+//            }
             System.out.println("-------------------------------"); // 1회전 시 출력되는 내용을 구분
         }
     }
