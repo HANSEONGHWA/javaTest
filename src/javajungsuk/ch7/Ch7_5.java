@@ -25,19 +25,32 @@ class KumhoTire2 implements Tire2{
 }
 
 class Car2{
-    //인터페이스 타입 필드 선언과 초기 구현 객체 대입
-    Tire2 frontLeft = new HankookTire2();
-    Tire2 frontRight = new HankookTire2();
-    Tire2 backLeft = new HankookTire2();
-    Tire2 backRight = new HankookTire2();
+    //인터페이스 배열로 구현 객체 관리
+    Tire2[] tires = {
+            new HankookTire2(),
+            new HankookTire2(),
+            new HankookTire2(),
+            new HankookTire2()
+    };
 
-    //인터페이스에서 설명된 roll()메소드 호출
     void run(){
-        frontLeft.roll();
-        frontRight.roll();
-        backLeft.roll();
-        backRight.roll();
+        for (Tire2 t : tires){
+            t.roll();
+        }
     }
+//    //인터페이스 타입 필드 선언과 초기 구현 객체 대입
+//    Tire2 frontLeft = new HankookTire2();
+//    Tire2 frontRight = new HankookTire2();
+//    Tire2 backLeft = new HankookTire2();
+//    Tire2 backRight = new HankookTire2();
+
+//    //인터페이스에서 설명된 roll()메소드 호출
+//    void run(){
+//        frontLeft.roll();
+//        frontRight.roll();
+//        backLeft.roll();
+//        backRight.roll();
+//    }
 }
 
 public class Ch7_5 {
@@ -46,8 +59,11 @@ public class Ch7_5 {
 
         c.run();
 
-        c.frontLeft = new KumhoTire2();
-        c.frontRight = new KumhoTire2();
+        c.tires[0] = new KumhoTire2();
+        c.tires[1] = new KumhoTire2();
+
+//        c.frontLeft = new KumhoTire2();
+//        c.frontRight = new KumhoTire2();
 
         c.run();
     }
