@@ -3,7 +3,7 @@ package javajungsuk.ch7;
 /**
  * 중첩 인터페이스
  */
-class Button{
+class Button1{
     interface OnClickListener{
         void onClick();
     }
@@ -19,7 +19,7 @@ class Button{
 
 }
 
-class CallListener implements Button.OnClickListener{
+class CallListener implements Button1.OnClickListener{
 
     @Override
     public void onClick() {
@@ -27,7 +27,7 @@ class CallListener implements Button.OnClickListener{
     }
 }
 
-class MessageListener implements Button.OnClickListener{
+class MessageListener implements Button1.OnClickListener{
 
     @Override
     public void onClick() {
@@ -39,7 +39,7 @@ class MessageListener implements Button.OnClickListener{
 public class Ch7_10 {
     public static void main(String[] args) {
 
-        Button bnt = new Button();
+        Button1 bnt = new Button1();
 
         bnt.setOnClickListener(new CallListener());
         bnt.touch();
