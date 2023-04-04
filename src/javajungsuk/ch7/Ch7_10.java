@@ -1,5 +1,8 @@
 package javajungsuk.ch7;
 
+/**
+ * 중첩 인터페이스
+ */
 class Button{
     interface OnClickListener{
         void onClick();
