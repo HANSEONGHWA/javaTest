@@ -8,7 +8,7 @@ package javajungsuk.algorithm.youtube.p2;
 public class Main {
     public static void main(String[] args) {
 
-        //배열 생성
+        //계산된 결과 값을 담을 배열
         int[] arr = new int[100];
 
         //ex) 1 1 2 3 5 8 13 .....
@@ -25,5 +25,19 @@ public class Main {
             System.out.println(arr[i]+"");
         }
 
+        //2번쨰 방법
+
+        int prevNum1 = 1;   //A(n-1)항
+        int prevNum2 = 1;   //A(n-2)항
+        System.out.println(prevNum1);
+        System.out.println(prevNum2);
+
+        for (int i = 0; i < 10; i++) {
+            int curNum = prevNum1 + prevNum2;
+            System.out.println(curNum+ "");
+
+            prevNum1 = prevNum2;
+            prevNum2 = curNum;
+        }
     }
 }
