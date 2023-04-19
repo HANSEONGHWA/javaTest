@@ -18,7 +18,7 @@ public class Main {
 
         //정보가 잘 들어갔는지 list에서 꺼내 확인
         for (Student stu:list) {
-            System.out.println(stu.getNeme());
+            System.out.println(stu.getName());
             System.out.println(stu.getNo());
         }
 
@@ -33,7 +33,7 @@ public class Main {
                 boolean flag = false;
 
                 for (Student stu : list){
-                    if (stu.getNeme().equals(name)){
+                    if (stu.getName().equals(name)){
                         System.out.println("해당하는 학생의 학번은: "+stu.getNo());
                         flag = true;
                     }

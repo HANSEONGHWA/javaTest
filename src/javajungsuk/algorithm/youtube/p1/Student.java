@@ -1,21 +1,20 @@
 package javajungsuk.algorithm.youtube.p1;
 
 public class Student {
-    private String neme;
+    private String name;
     private String no;
 
-    public Student(String neme, String no) {
-        this.neme = neme;
+    public Student(String name, String no) {
+        this.name = name;
         this.no = no;
     }
 
-
-    public String getNeme() {
-        return neme;
+    public String getName() {
+        return name;
     }
 
-    public void setNeme(String neme) {
-        this.neme = neme;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getNo() {
